@@ -111,19 +111,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 case -90: window.location.reload(); 
                 break; } 
     };
-  //scroll to bottom of the page
-  // top.window.scroll(0, 12000)
-  // window.scrollTop = 12000;
-  // document.getElementById("myDiv");
-    window.scrollTo(0, 9000);
-  // console.log(window.scrollTo);
-   // scroll.scrollTop = scroll.scrollHeight;
-  // window.scrollTop = window.screenHeight + getOffsetTop(".elevator-div");
-  // window.scroll({top: 12000, left: 0,});
-  // $("html, body").animate({ 
-  //   scrollTop: getOffsetTop("html, body") + ($(document).height())
-  // }, 500); 
-  disableScroll();
+    window.scrollTo(0, 9000); // couldnt make it to work for chrome any other way.
+    disableScroll();
   //close modal1/ explanation modal
   document.getElementById("modal1btn").addEventListener('click', function() {
     query(".modal1-container").classList.remove("visible");
