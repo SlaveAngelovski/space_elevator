@@ -1,0 +1,16 @@
+// modal ok button style
+%btn {
+	padding: 0.4em 1.5em;
+	background: $black-opac2;
+	color: $text;
+	border: solid 1px $text;
+	cursor: pointer;
+	text-transform: uppercase;
+	font-size: 0.9em;
+	font-weight: 400;
+	width: auto;
+	&:hover {
+		background: darken($black-opac2, 10);
+		@include css3-prefix (transition, background-color 1s);
+	}
+}

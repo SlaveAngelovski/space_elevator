@@ -1,0 +1,19 @@
+*:not(head) {// exclude head
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	display: flex;
+}
+
+input, button {
+	display: block;
+}
+
+link:hover {
+	cursor:pointer;
+}
+
+a:visited, a:active {
+	color: inherit;
+}

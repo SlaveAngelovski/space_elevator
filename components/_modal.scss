@@ -1,0 +1,92 @@
+// modal classes
+.modal1-container {
+	@extend %fixed;
+	@extend %center-items;
+	@extend %height-100;
+	@extend %width-100;
+	@include modal-bg; //css animation see mixins starting from 147
+	@include css3-prefix (animation, modal-bg 5s linear forwards);
+	top: 0;
+	z-index: 12;
+	display: none;
+	.modal1 {
+		max-width: 1000px;
+		flex-direction: column;
+		flex-basis: 45%;
+		background: $modal-bg;
+		color: $text;
+		padding: 8vh 4vh;
+		@media screen and (max-width: 900px) {
+			font-size: 3.8vh;
+			flex-basis: auto;
+			padding: 8vh 10vh;
+		}
+		.first-p {
+			flex-wrap: wrap;
+			display: block;
+			a {
+				display: inline-block;
+				color: darken($text, 10);
+			}
+		}
+		.second-row {
+			align-items: center;
+			padding: 1vh 0;
+			img {
+				width: 7%;
+			}
+			.second-p {
+				margin: 0 0 0 5%;
+			}
+		}
+		.button-modal1 {
+			@extend %just-cent;
+			#modal1btn {
+				@extend %btn;
+			}
+		}
+	}
+}
+.modal2-container {
+	@extend %fixed;
+	@extend %center-items;
+	@extend %height-100;
+	@extend %width-100;
+	@include modal-bg; //css animation see mixins starting from 147
+	@include css3-prefix (animation, modal-bg 4s linear reverse forwards);
+	top: 0;
+	z-index: 14;
+	display: none;
+	@media screen and (max-width: 470px) {
+		display: flex;
+	}
+	.modal2 {
+		@extend %center-items;
+		@extend %width-100;
+		@extend %height-100;
+		flex-direction: column;
+		background: $modal-bg;
+		color: $text;
+		padding: 8vh 4vh;
+		.first-p {
+			text-align: center;
+			padding: 0 0 6vh 0;
+		}
+		.second-row {
+			width: 45%;
+			img {
+				@include phone;
+				@include css3-prefix (animation, phone 3s ease-in-out infinite);
+				@include css3-prefix (transform-origin, "50% 50%");
+				@extend %width-100;
+				@extend %height-100;
+			}
+		}
+		.button2 {
+			@extend %just-cent;
+			button {
+				@extend %btn;
+			}
+		}
+	}
+}

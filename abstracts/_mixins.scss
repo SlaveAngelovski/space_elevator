@@ -1,0 +1,253 @@
+
+%flex {
+	display: -webkit-box;  /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+ 	display: -ms-flexbox;  /* TWEENER - IE 10 */
+ 	display: -webkit-flex; /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+ 	display: flex;         /* NEW, Spec - Firefox, Chrome, Opera */
+}
+
+// mixin for dynamicly creating attribute prefixes
+@mixin css3-prefix($property, $value) {
+	-webkit-#{$property}: #{$value};
+	-khtml-#{$property}: #{$value};
+	-moz-#{$property}: #{$value};
+	-ms-#{$property}: #{$value};
+	-o-#{$property}: #{$value};
+	#{$property}: #{$value};
+}
+
+//mixins to reduce code
+%visible {
+  display: flex;
+}
+%hidden {
+  display: none;
+}
+
+%width-100 {
+  width: 100%;
+}
+
+%height-100 {
+  height: 100%;
+}
+
+%center-items {
+  align-items: center;
+  justify-content: center;
+}
+
+%align-cent {
+  align-items: center;
+}
+
+%just-cent {
+  justify-content: center;
+}
+
+%absolute {
+  position: absolute;
+}
+
+%relative {
+  position: relative;
+}
+
+%fixed {
+  position: fixed;
+}
+
+%nonSelectable {
+  @include css3-prefix (user-select, "none");
+}
+
+// mixins for the background colours/gradients
+%troposphere-col {
+  background: -moz-linear-gradient(top, #7eb0d5 0%, #bdcbcc 50%, #bccbc8 51%, #c5ccc4 57%, #c9cbbe 61%, #cecbbc 70%, #d8b78e 77%, #d8b58f 78%, #d7b48c 78%, #ceba99 81%, #b5b09d 83%, #769aaa 87%, #4e8cb3 90%, #4d8cc1 94%, #518dcb 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #7eb0d5 0%,#bdcbcc 50%,#bccbc8 51%,#c5ccc4 57%,#c9cbbe 61%,#cecbbc 70%,#d8b78e 77%,#ceba99 81%,#b5b09d 83%,#769aaa 87%,#4e8cb3 90%,#4d8cc1 94%,#518dcb 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #7eb0d5 0%,#bdcbcc 50%,#bccbc8 51%,#c5ccc4 57%,#c9cbbe 61%,#cecbbc 70%,#d8b78e 77%,#ceba99 81%,#b5b09d 83%,#769aaa 87%,#4e8cb3 90%,#4d8cc1 94%,#518dcb 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+%stratosphere-col {
+  background: -moz-linear-gradient(top, #7899b8 0%, #7fafd3 100%);
+background: -webkit-linear-gradient(top, #7899b8 0%,#7fafd3 100%);
+background: linear-gradient(to bottom, #7899b8 0%,#7fafd3 100%);
+}
+
+%mesosphere-col {
+  background: -moz-linear-gradient(top, #3b4c77 0%, #7899b8 100%);
+background: -webkit-linear-gradient(top, #3b4c77 0%,#7899b8 100%);
+background: linear-gradient(to bottom, #3b4c77 0%,#7899b8 100%);
+}
+
+%thermosphere-col {
+  background: -moz-linear-gradient(top, #0d0f24 0%, #3b4c77 100%);
+background: -webkit-linear-gradient(top, #0d0f24 0%,#3b4c77 100%);
+background: linear-gradient(to bottom, #0d0f24 0%,#3b4c77 100%);
+}
+
+%circle1 {
+  background: linear-gradient(to bottom, #232c4b 0%, #2e3b5f 100%);
+  background: -webkit-linear-gradient(top, #232c4b 0%, #2e3b5f 100%);
+  background: linear-gradient(to bottom, #232c4b 0%, #2e3b5f 100%);
+}
+
+%circle2 {
+  background: linear-gradient(to bottom, #0f132a 0%, #212947 100%);
+  background: -webkit-linear-gradient(top, #0f132a 0%, #212947 100%);
+  background: linear-gradient(to bottom, #0f132a 0%, #212947 100%);
+}
+
+%circle3 {
+  background: linear-gradient(to bottom, #1d233e 0%, #283455 100%);
+  background: -webkit-linear-gradient(top, #1d233e 0%, #283455 100%);
+  background: linear-gradient(to bottom, #1d233e 0%, #283455 100%);
+}
+
+%exosphere-col {
+  background: -moz-linear-gradient(top, #050811 0%, #0d0f24 100%);
+background: -webkit-linear-gradient(top, #050811 0%,#0d0f24 100%);
+background: linear-gradient(to bottom, #050811 0%,#0d0f24 100%);
+}
+
+%space-col {
+  background: #05050f; /* Old browsers */
+background: -moz-linear-gradient(top, #05050f 0%, #050811 100%);
+background: -webkit-linear-gradient(top, #05050f 0%,#050811 100%);
+background: linear-gradient(to bottom, #05050f 0%,#050811 100%);
+}
+
+%geo-orbit {
+  background: #06050b; /* Old browsers */
+background: -moz-linear-gradient(top, #06050b 0%, #05050f 100%);
+background: -webkit-linear-gradient(top, #06050b 0%,#05050f 100%);
+background: linear-gradient(to bottom, #06050b 0%,#05050f 100%);
+}
+
+
+// mixin for dynamically creating keyframe prefixes
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content; 
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  } 
+}
+
+//animation for the bird trajectory
+@mixin bird {
+  @include keyframes(bird) {
+    0% { @include css3-prefix ('transform', "translate(1000%, 0)"); }
+    100% { @include css3-prefix ('transform', "translate(0, 0)"); }
+  }
+}
+
+//animation for the plane trajectory
+@mixin plane {
+  @include keyframes(plane) {
+    0% { @include css3-prefix ('transform', "translate(0, 0)"); }
+    100% { @include css3-prefix ('transform', "translate(380%, 0)"); }
+  }
+}
+
+//animation for the baloon trajectory
+@mixin baloon {
+  @include keyframes(baloon) {
+    0% { @include css3-prefix ('transform', "translate(1400%, 0)"); }
+    100% { @include css3-prefix ('transform', "translate(0, 0)"); }
+  }
+}
+
+//animation for the meteor trajectory
+@mixin meteor {
+  @include keyframes(meteor) {
+    0% { @include css3-prefix ('transform', "translate(0, 0)"); }
+    100% { @include css3-prefix ('transform', "translate(-463%, 366%)"); }
+  }
+}
+
+//animation for the aurora borealis trajectory
+@mixin aurora {
+  @include keyframes(aurora) {
+    0% { @include css3-prefix ('transform', "translate(0,0) scale(1, 1)"); }
+    50% { @include css3-prefix ('transform', "translate(48%,0) scale(1, 1.7)"); }
+    100% { @include css3-prefix ('transform', "translate(96.8%,0) scale(1, 1)"); }
+  }
+}
+
+//reverse trajectory for the aurora borealis 
+@mixin aurora-reverse {
+  @include keyframes(aurora-reverse) {
+    0% { @include css3-prefix ('transform', "translate(0,0) scale(1, 1.1)"); }
+    50% { @include css3-prefix ('transform', "translate(-48%,0) scale(1, 1.7)"); }
+    100% { @include css3-prefix ('transform', "translate(-96.8%,0) scale(1, 1.1)"); }
+  }
+}
+
+//animation for the space station trajectory
+@mixin iss {
+  @include keyframes(iss) {
+    0% { @include css3-prefix ('transform', "translate(400%, 0)"); }
+    100% { @include css3-prefix ('transform', "translate(0, 0)"); }
+  }
+}
+
+//animation for the satellite trajectory
+@mixin satellite {
+  @include keyframes(satellite) {
+    0% { @include css3-prefix ('transform', "translate(0, 0)"); }
+    100% { @include css3-prefix ('transform', "translate(610%, 0)"); }
+  }
+}
+
+//animation for the spy satellite trajectory
+@mixin spy-sat {
+  @include keyframes(spy-sat) {
+    0% { @include css3-prefix ('transform', "translate(610%, 0)"); }
+    100% { @include css3-prefix ('transform', "translate(0, 0)"); }
+  }
+}
+
+//animation for modal background
+@mixin modal-bg {
+  @include keyframes(modal-bg) {
+    0% { background: $black; }
+    70% { background: $black; }
+    100% { background: $black-opac; }
+  }
+}
+
+//animation for the image under h2 on the top menu
+@mixin h2line {
+  @include keyframes(h2line) {
+    0% { @include css3-prefix ('transform', "scale(0, 1)"); }
+    100% { @include css3-prefix ('transform', "scale(1, 1)"); }
+  }
+}
+
+//animation for the text on the top menu
+@mixin header-text {
+  @include keyframes(header-text) {
+    0% { opacity: 0; }
+    25% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+}
+
+//animation for the phone orientation modal
+@mixin phone {
+  @include keyframes(phone) {
+    0% { @include css3-prefix ('transform', "rotate(0deg)"); }
+    20% { @include css3-prefix ('transform', "rotate(-90deg)"); }
+    80% { @include css3-prefix ('transform', "rotate(-90deg)"); }
+    100% { @include css3-prefix ('transform', "rotate(0deg)"); }
+  }
+}

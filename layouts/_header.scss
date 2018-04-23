@@ -1,0 +1,296 @@
+// top info box
+.hide-header {// for the reveal animation
+	transform: translate(0, -100%);
+}
+.header {
+	@extend %center-items;
+	@extend %fixed;
+	@extend %nonSelectable;
+	@include css3-prefix ('transition', transform 1.3s ease-in-out);
+	width: 100%;
+	z-index: 10;
+	.info-container {
+		@extend %center-items;
+		color: $text;
+		flex-direction : column;
+		flex-basis: 136em;
+		height: 13.5vh;
+		@media screen and (max-width: 2560px) {
+			padding: 0 11vw;
+			height: 15.5vh;
+		}
+		@media screen and (max-width: 1920px) {
+			padding: 0 calc(90px + 10vh);
+			flex-basis: 96em;
+		}
+		@media screen and (max-width: 1600px) {
+			padding: 0 calc(90px + 12vh);
+		}
+		.info-h2 {
+			display: none;
+			@media screen and (max-width: 900px) {
+				position: absolute;
+				top: 12%;
+				left: auto;
+				font-size: calc(9px + 0.4vw);
+				font-weight: 300;
+			}
+		}
+		.bckg {
+			@extend %absolute;
+			top: -2px;
+			left: auto;
+			right: auto;
+			bottom: 0;
+			height: 100%;
+			width: 79%;  
+			z-index: -2;
+			@media screen and (max-width: 1600px) {
+				width: 95vw;
+			}
+			@media screen and (max-width: 1024px) {
+				width: 85vw;
+			}
+		}
+		.show-head-img {
+			@include h2line;
+			@include css3-prefix (animation, h2line 2s ease-in-out forwards);
+			visibility: visible !important;
+		}
+		.headline-img {
+			@extend %absolute;
+			visibility: hidden;
+			width: calc(9px + 21.4vh);
+			top: 2vh;
+			z-index: -1;
+			@media screen and (max-width: 2560px) {
+				top: 1.7em;
+			}
+			@media screen and (max-width: 1440px) {
+				top: 1.5em;
+				width: 17em;
+				line-height: 69%;
+			}
+			@media screen and (max-width: 900px) {
+				height: auto;
+				line-height: auto;
+				width: 42vw;
+				top: 1.3em;
+			}
+		}
+		.small-info {
+			@extend %just-cent;
+			display: none;
+			@media screen and (max-width: 900px) {
+				display: flex;
+				position: absolute;
+				top: 8vh;
+				
+			}
+			button {
+				@extend %btn;
+				font-size: calc(7px + 0.4vw);
+			}
+		}
+		.info {
+			@extend %center-items;
+			flex-direction: column;
+			flex-grow: 1;
+			display: none;
+			height: 10vh;
+			@media screen and (max-width: 1600px) {
+				height: 79%;
+			}
+			@media screen and (max-width: 900px) {
+				@include css3-prefix (transition, background-color 1s);
+				background: $black;
+				opacity: 0.9;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100vw;
+				height: 100vh;
+				padding: 4vw 12vh;
+			}
+			h2 {
+				padding: 0.6em 0;
+				font: {
+					weight: 400;
+					size: calc(9px + 0.4vw);
+				}
+			}
+			p {
+				flex-grow: 1;
+				height: 5vw;
+				font-size: calc(9px + 0.4vw);
+				overflow-x: hidden;
+				.mCustomScrollBox {// it doesent work otherwise because of display: flex in reset.scss
+					display: block;
+				}
+				@media screen and (max-height: 420px) {
+					font-size: 14px;
+				}
+			}
+			@media screen and (max-width: 900px) {
+				visibility: hidden;
+			}
+		}
+		.exit-info-btn {
+			width: 100%;
+			justify-content: center;
+			position: absolute;
+			bottom: -410%;
+			.exit-btn {
+				@extend %btn;
+				visibility: hidden;
+				font-size: calc(7px + 0.4vw);
+				z-index: 10;
+			}
+		}
+		.aditional-info {
+			@extend %align-cent;
+			font-size: calc(9px + 0.4vw);
+			white-space: nowrap;
+			height: 20%;
+			justify-content: space-between;
+			width: 100%;
+			@media screen and (max-width: 1600px) {
+				padding: 0 3vh;
+			}
+			@media screen and (max-width: 1600px) {
+				padding: 0 1vh;
+			}
+			@media screen and (max-width: 1366px) {
+				padding: 0 3vh;
+			}
+			@media screen and (max-width: 900px) {
+				display: none;
+			}
+			.add-info-l {
+				width: 30%;
+				.rad {
+					display: none;
+				}
+			}
+			.add-info-r {
+				justify-content: space-between;
+				width: 30%;
+			}
+		}
+	}
+}
+
+// side info box
+.show-side {
+	transform: translate(0, 0) !important;
+}
+.side-info-container {
+	@extend %fixed;
+	@extend %align-cent;
+	@extend %height-100;
+	@extend %nonSelectable;
+	@include css3-prefix ('transition', transform 1.2s ease-in-out);
+	transform: translate(100%, 0);
+	width: 7%;
+	right: -1.2%;
+	z-index: 9;
+	@media screen and (max-width: 2560px) {
+		right: 0;
+	}
+	.side-box {
+		@extend %align-cent;
+		@extend %relative;
+		.side-info-img {
+			@extend %flex;
+			@extend %width-100;
+			@extend %height-100;
+			z-index: 9;
+		}
+		.mini-athmosphere {
+			@extend %absolute;
+			width: 66%;
+			height: 72%;
+			top: 14%;
+    		right: 28%;
+			.elev-icon-container {
+				@include css3-prefix ('transition', transform 1s);
+				height: 20%;
+				width: 87%;
+				margin: 0 0 0 13%;
+				.elevator-icon {
+					@extend %width-100;
+					@extend %height-100;
+					z-index: 4;
+				}
+			}
+			.pos0 { // positions for the elevator icon on the right side
+				@include css3-prefix ('transform', "translate(0, 406%)");
+			}
+			.pos1 {
+				@include css3-prefix ('transform', "translate(0, 322%)");
+			}
+			.pos2 {
+				@include css3-prefix ('transform', "translate(0, 240%)");
+			}
+			.pos3 {
+				@include css3-prefix ('transform', "translate(0, 157%)");
+			}
+			.pos4 {
+				@include css3-prefix ('transform', "translate(0, 75%)");
+			}
+			.pos5 {
+				@include css3-prefix ('transform', "translate(0, -8%)");
+			}
+			.boxes {
+				align-self: center;
+				height: 98.4%;
+				width: 9%;
+				margin: 0 0 0 -9.3%;
+				z-index: 10;
+				.box-1 {
+					@extend %width-100;
+					height: 16.5%;
+				}
+				.box-2 {
+					@extend %width-100;
+					height: 16.5%;
+				}
+				.box-3 {
+					@extend %width-100;
+					height: 16.5%;
+				}
+				.box-4 {
+					@extend %width-100;
+					height: 16.5%;
+				}
+				.box-5 {
+					@extend %width-100;
+					height: 16.5%;
+				}
+				.box-6 {
+					@extend %width-100;
+					height: 16.5%;
+				}
+			}
+		}
+	}
+	.vertical-text {
+		@extend %absolute;
+		@extend %center-items;
+		color: $text;
+		font-size: 0.9vw;
+		width: 9%;
+		height: 72%;
+		text-align: center;
+		top: 14%;
+		right: 10%;
+		z-index: 10;
+		opacity: 0.8;
+		word-break: break-all;
+		@media screen and (max-width: 900px) {
+			font-size: 1.3vw;
+		}
+	}
+}
+
+

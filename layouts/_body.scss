@@ -1,0 +1,20 @@
+html {
+	// @extend %height-100;
+	.disable-scroll {
+		overflow: hidden;
+	}
+	body {
+		font-family: $font-sans;
+		// scroll-behavior: smooth;
+		.visible { // global classes
+			display: flex !important;
+		}
+		.hidden {
+			display: none !important;
+		}
+		.info-visible { // global classes
+			visibility: visible !important;
+		}
+	}
+}
+
