@@ -111,9 +111,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 case -90: window.location.reload(); 
                 break; } 
     };
-    window.scrollTo(0, 9000); // couldnt make it to work for chrome any other way.
-    disableScroll();
-  //close modal1/ explanation modal
+  //scroll to bottom of the page
+    window.scrollTo(0, 12000); // I couldnt make it to work otherwise on chrome
+  disableScroll();
   document.getElementById("modal1btn").addEventListener('click', function() {
     query(".modal1-container").classList.remove("visible");
     enableScroll();
